@@ -663,6 +663,7 @@ hr {
 	display: flex;
 	width: 100%; 
 	height: auto;
+	max-height: 788px;
 	
 	padding: 92px;
 }
@@ -696,6 +697,7 @@ hr {
 
 
 .accordion {
+
 }
 
 .accordion_item {

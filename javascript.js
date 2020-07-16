@@ -28,110 +28,34 @@ function mn2() {
 
 
 
-function accordion() {
+function accordion(elim) {
+	let accordion_item = document.getElementsByClassName('accordion_item')
 
-	document.getElementById("accordion_text").style.display = "block"
-	document.getElementById("accordion_text").style.animation = "animatetop 0.5s"
-	document.getElementById("accordion_img").src = "img/off.png"
-	document.getElementById("accordion_button").onclick = null
-
-	setTimeout( () => {
-		document.getElementById("accordion_button").onclick = accordionClose
-	},500)
-	
+	for (var i = 0; i < accordion_item.length; i++) {
+		accordion_item[i].getElementsByClassName("accordion_icon_end")[0].src = "img/on.png"
+		accordion_item[i].getElementsByClassName("accordion_content")[0].style.display = "none"
+	}
 
 
-
-	document.getElementById("accordion_img2").src = "img/on.png"
-	document.getElementById("accordion_text2").style.display = ""
-	document.getElementById("accordion_button2").onclick = accordion2
-
-	
-
-	document.getElementById("accordion_img3").src = "img/on.png"
-	document.getElementById("accordion_text3").style.display = ""
-	document.getElementById("accordion_button3").onclick = accordion3
-}
-
-function accordionClose() {
-
-	document.getElementById("accordion_text").style.animation = "animatetop2 0.5s"
-	document.getElementById("accordion_img").src = "img/on.png"
-	document.getElementById("accordion_button").onclick = null
+	elim.getElementsByClassName("accordion_content")[0].style.cssText = "display: block; animation: animatetop 0.5s;"
+	elim.getElementsByClassName("accordion_icon_end")[0].src = "img/off.png"
+	elim.onclick = null
 
 	setTimeout( () => {
-		document.getElementById("accordion_text").style.display = ""
-		document.getElementById("accordion_button").onclick = accordion
-	}, 500)
-}
-
-
-
-
-
-function accordion2() {
-	document.getElementById("accordion_text2").style.display = "block"
-	document.getElementById("accordion_text2").style.animation = "animatetop 0.5s"
-	document.getElementById("accordion_img2").src = "img/off.png"
-	document.getElementById("accordion_button2").onclick = null
-
-	setTimeout( () => {
-		document.getElementById("accordion_button2").onclick = accordionClose2
+		elim.setAttribute("onclick", "accordionClose(this)")
 	},500)
 
-
-
-	document.getElementById("accordion_img").src = "img/on.png"
-	document.getElementById("accordion_text").style.display = ""
-	document.getElementById("accordion_button").onclick = accordion
-
-	document.getElementById("accordion_img3").src = "img/on.png"
-	document.getElementById("accordion_text3").style.display = ""
-	document.getElementById("accordion_button3").onclick = accordion3
 }
 
-function accordionClose2() {
-	document.getElementById("accordion_text2").style.animation = "animatetop2 0.5s"
-	document.getElementById("accordion_img2").src = "img/on.png"
-	document.getElementById("accordion_button2").onclick = null
+function accordionClose(elim) {
+
+	elim.getElementsByClassName("accordion_content")[0].style.animation = "animatetop2 0.5s"
+	elim.getElementsByClassName("accordion_icon_end")[0].src = "img/on.png"
+	elim.onclick = null
 
 	setTimeout( () => {
-		document.getElementById("accordion_text2").style.display = ""
-		document.getElementById("accordion_button2").onclick = accordion2
-	}, 500)
-}
-
-
-
-
-function accordion3() {
-	document.getElementById("accordion_text3").style.display = "block"
-	document.getElementById("accordion_text3").style.animation = "animatetop 0.5s"
-	document.getElementById("accordion_img3").src = "img/off.png"
-	document.getElementById("accordion_button3").onclick = null
-
-	setTimeout( () => {
-		document.getElementById("accordion_button3").onclick = accordionClose3
-	},500)
-
-
-	document.getElementById("accordion_img2").src = "img/on.png"
-	document.getElementById("accordion_text2").style.display = ""
-	document.getElementById("accordion_button2").onclick = accordion2
-
-	document.getElementById("accordion_img").src = "img/on.png"
-	document.getElementById("accordion_text").style.display = ""
-	document.getElementById("accordion_button").onclick = accordion
-}
-
-function accordionClose3() {
-	document.getElementById("accordion_text3").style.animation = "animatetop2 0.5s"
-	document.getElementById("accordion_img3").src = "img/on.png"
-	document.getElementById("accordion_button3").onclick = null
-
-	setTimeout( () => {
-		document.getElementById("accordion_text3").style.display = ""
-		document.getElementById("accordion_button3").onclick = accordion3
+		elim.getElementsByClassName("accordion_content")[0].style.display = ""
+		elim.setAttribute("onclick", "accordion(this)")
 	}, 500)
 }
 
