@@ -11,14 +11,17 @@ function mn() {
 }
 
 function mn2() {
-	let menuButton = document.getElementById('menuButton')
-	menuButton.setAttribute('class', 'nav-toggle')
+	if(document.body.clientWidth <= 661) {
+		let menuButton = document.getElementById('menuButton')
+		menuButton.setAttribute('class', 'nav-toggle')
 
-	let nav = document.getElementById('nav')
-	nav.style.display = "none"
+		let nav = document.getElementById('nav')
+		nav.style.display = "none"
 
 
-	menuButton.setAttribute("onclick", "mn()")
+		menuButton.setAttribute("onclick", "mn()")		
+	}
+
 }
 
 
